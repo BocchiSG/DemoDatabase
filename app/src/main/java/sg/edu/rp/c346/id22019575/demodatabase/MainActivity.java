@@ -46,8 +46,10 @@ public class MainActivity extends AppCompatActivity {
                 DBHelper db = new DBHelper(MainActivity.this);
 
                 // Insert a task
-
+                String task = etTask.getText().toString();
+                String date = etDate.getText().toString();
                 ArrayList<Task> data2 = db.getTasks();
+                db.insertTask(task, date);
                 db.close();
 
                 adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, data2);
@@ -80,5 +82,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-}
+
+    }
+
+
 
